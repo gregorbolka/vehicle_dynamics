@@ -29,10 +29,10 @@ omega_Rrr = X(vehicle_param.n_dofs+7)*vehicle_param.r_w;
 F_nfaxle=(-F_aero*(vehicle_param.h_aero)-vehicle_param.M*a_longold*(vehicle_param.h)+vehicle_param.M*9.81*vehicle_param.b-inputs.T(1,k)*cos(steer_angle)-inputs.T(2,k)*cos(steer_angle)-inputs.T(3,k)-inputs.T(4,k))/vehicle_param.L;
 F_nraxle=(F_aero*(vehicle_param.h_aero)+vehicle_param.M*a_longold*(vehicle_param.h)+vehicle_param.M*9.81*vehicle_param.a+inputs.T(1,k)*cos(steer_angle)+inputs.T(2,k)*cos(steer_angle)-inputs.T(3,k)-inputs.T(4,k))/vehicle_param.L;
 
-F_nfl=(F_nfaxle*vehicle_param.tf2-a_latold*vehicle_param.M)/(2*vehicle_param.tf2);
-F_nfr=(F_nfaxle*vehicle_param.tf2+a_latold*vehicle_param.M)/(2*vehicle_param.tf2);
-F_nrl=(F_nraxle*vehicle_param.tr2-a_latold*vehicle_param.M)/(2*vehicle_param.tr2);
-F_nrr=(F_nraxle*vehicle_param.tr2+a_latold*vehicle_param.M)/(2*vehicle_param.tr2);
+F_nfl=(F_nfaxle*vehicle_param.tf2-a_latold*vehicle_param.M*vehicle_param.h)/(2*vehicle_param.tf2);
+F_nfr=(F_nfaxle*vehicle_param.tf2+a_latold*vehicle_param.M*vehicle_param.h)/(2*vehicle_param.tf2);
+F_nrl=(F_nraxle*vehicle_param.tr2-a_latold*vehicle_param.M*vehicle_param.h)/(2*vehicle_param.tr2);
+F_nrr=(F_nraxle*vehicle_param.tr2+a_latold*vehicle_param.M*vehicle_param.h)/(2*vehicle_param.tr2);
 
 %% Calculate tyre forces:
 
